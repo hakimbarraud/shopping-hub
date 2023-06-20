@@ -11,18 +11,16 @@ const items = [
 */
 const ShoppingList = ({ items, onDeleteItem, onUpdateItem }) => {
   return (
-    <div className="bg-indigo-200">
-      <ul className="grid grid-cols-2 md:grid-cols-4 p-10 h-96 gap-6 text-center max-w-2xl mx-auto">
-        {items.map((item) => (
-          <ShoppingListItem
-            key={item.id}
-            item={item}
-            onDeleteItem={onDeleteItem}
-            onUpdateItem={onUpdateItem}
-          />
-        ))}
-      </ul>
-    </div>
+    <ul className="grid grid-cols-2 md:grid-cols-4 p-10 h-96 gap-6 text-center max-w-2xl mx-auto">
+      {items.map((item) => (
+        <ShoppingListItem
+          key={item.id}
+          item={item}
+          onDeleteItem={onDeleteItem}
+          onUpdateItem={onUpdateItem}
+        />
+      ))}
+    </ul>
   );
 };
 

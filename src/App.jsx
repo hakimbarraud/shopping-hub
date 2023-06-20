@@ -32,7 +32,7 @@ function App() {
     <>
       <Header />
       <Form onAddItem={handleAddItem} onClearList={handleClearList} />
-      {items.length > 1 ? (
+      {items.length > 0 ? (
         <ShoppingList
           items={items}
           onDeleteItem={handleDeleteItem}
