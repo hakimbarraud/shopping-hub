@@ -3,6 +3,7 @@ import Form from "./components/Form";
 import Header from "./components/Header";
 import ShoppingList from "./components/ShoppingList";
 import Stats from "./components/Stats";
+import ShoppingListEmpty from "./components/ShoppingListEmpty";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -31,11 +32,15 @@ function App() {
     <>
       <Header />
       <Form onAddItem={handleAddItem} onClearList={handleClearList} />
-      <ShoppingList
-        items={items}
-        onDeleteItem={handleDeleteItem}
-        onUpdateItem={handleUpdateItem}
-      />
+      {items.length > 1 ? (
+        <ShoppingList
+          items={items}
+          onDeleteItem={handleDeleteItem}
+          onUpdateItem={handleUpdateItem}
+        />
+      ) : (
+        <ShoppingListEmpty />
+      )}
       {items.length >= 1 && <Stats items={items} />}
     </>
   );
